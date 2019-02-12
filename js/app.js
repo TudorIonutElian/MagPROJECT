@@ -476,6 +476,6 @@ async function getProductDetails(){
             alert.log('Eroare, produsul exista deja in baza de date');
         }else{
             await ajax("PUT", `https://mymag-31b68.firebaseio.com/produse/${creare_produs_nou.id_produs}/.json`, JSON.stringify(creare_produs_nou));
-            setTimeout(function(){location.replace('index.html');} ,300);
+            setTimeout(function(){location.replace('index.html');} ,10);
         }
     }
