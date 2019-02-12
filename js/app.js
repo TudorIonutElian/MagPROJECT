@@ -162,7 +162,7 @@ async function getFinalOrder(){
         `<div class="order-col">
             <div class="text-left">${produse_in_cos[produs].cantitate} x ${produse_in_magazin[produs].nume_produs}</div>
             <div class="text-right">${(produse_in_cos[produs].cantitate * produse_in_magazin[produs].pret_nou_produs).toFixed(2)} RON</div>
-            <div class="text-center"><a href="" onclick="stergeDinCos();"><img src="img/remove-cart.png"></a></div>
+            <div class="text-center"><a href="" onclick="stergeDinCos('${produse_in_cos[produs].id}');"><img src="img/remove-cart.png"></a></div>
         </div>`;
         sumaFinala += produse_in_cos[produs].cantitate * produse_in_magazin[produs].pret_nou_produs;
     }
@@ -478,4 +478,29 @@ async function getProductDetails(){
             await ajax("PUT", `https://mymag-31b68.firebaseio.com/produse/${creare_produs_nou.id_produs}/.json`, JSON.stringify(creare_produs_nou));
             setTimeout(function(){location.replace('index.html');} ,10);
         }
+    }
+
+    async function stergeDinCos(produs){
+        event.preventDefault();
+        await ajax("DELETE", `https://mymag-31b68.firebaseio.com/cos/${produs}.json`, produs);
+        var produsToDelete = JSON.parse(await ajax("GET", `https://mymag-31b68.firebaseio.com/produse/${produs}/.json`));
+        var afisareProdusSters = document.getElementById('produs-sters');
+        afisareProdusSters.innerHTML = 
+        `
+        <div class="container">
+            <div class="row row-flex row-delete-product">
+                <div class="col-12 col-md-6 text-center">
+                    <div id="close-alert" class="close"><img src="img/close.png" alt=""></div>
+                    <h4>Produsul <span class="stock-alert-title">${produsToDelete.nume_produs}</span> a fost sters din cosul dumneavoastra de cumparaturi!</h4>
+                </div>
+            </div>
+        </div>
+        `;
+        afisareProdusSters.style.display = 'block';
+        var closeAlert = document.getElementById('close-alert');
+        closeAlert.addEventListener("click", function(){
+            var closeDiv = this.parentElement.parentElement;
+            closeDiv.style.display = 'none';
+            location.reload();
+        });
     }

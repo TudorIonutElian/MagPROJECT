@@ -753,7 +753,7 @@ textarea.input {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: var(--mag-background);e6;
+  background: var(--mag-background);
   text-align: center;
   border-radius: 50%;
   margin: 0px 5px;
@@ -2320,4 +2320,10 @@ textarea.input {
 }
 .order-col div{
   border-bottom: 1px solid var(--mag-background);
+}
+#produs-sters{
+  display: none;
+}
+.row-delete-product{
+  background-color: var(--index-stock-epuizat);
 }
