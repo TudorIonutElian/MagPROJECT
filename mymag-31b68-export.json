@@ -1,0 +1,21 @@
+{
+    "cos": {
+            "cubic_rube_200_rounds": {
+                "id": "cubic_rube_200_rounds",
+                "cantitate": 1
+            }
+    },
+    "produse": {
+        "cubic_rube_200_rounds": {
+            "descriere_produs": "Cubic Rube 200 Rounds\nCubic Rube 200 Rounds\nCubic Rube 200 Rounds",
+            "id_produs": "cubic_rube_200_rounds",
+            "imagine_produs": "https://media.joannehudson.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/e/g/egrub3517-3.jpg",
+            "nume_produs": "Cubic Rube 200 Rounds",
+            "pret_nou_produs": 123.33,
+            "pret_vechi_produs": 123.33,
+            "promotie_produs": true,
+            "reducere_produs": 12,
+            "stock_produs": 2
+        }
+    }
+}
